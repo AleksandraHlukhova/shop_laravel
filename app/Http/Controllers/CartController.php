@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Http\Controllers\Helpers\FlashMessage;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -55,6 +56,11 @@ class CartController extends Controller
         else
         {
             $order->products()->attach($product_id);
+        }
+        if(Auth::user())
+        {
+            $order->user_id = Auth::id();
+            $order->save();
         }
 
         return redirect()->route('cart');

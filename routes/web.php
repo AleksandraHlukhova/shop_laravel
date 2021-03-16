@@ -30,6 +30,19 @@ Route::get('/cart/remove-all-product-qty/{id}', 'CartController@cartRemoveAllPro
 Route::get('/cart/confirm-form', 'CartController@cartConfirmForm')->name('cart.cartConfirmForm');
 Route::post('/cart/confirm', 'CartController@cartConfirm')->name('cart.confirm');
 
-// Route::auth([
+Auth::routes([
+    'reset' => false,
+    'confirm' => false,
+    'verify' => false,
+]);
 
-// ]);
+//admin
+Route::group([
+    'middleware' => 'auth',
+    'middleware' => 'isAdmin',
+], function(){
+    Route::get('/admin/orders', 'Admin\OrderController@orders')->name('admin.orders');
+    Route::resource('/admin/categories', 'Admin\CategoryController');
+});
+
+

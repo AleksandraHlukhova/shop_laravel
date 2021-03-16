@@ -36,8 +36,8 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->getSumm() }}</td>
                     <td>
-                        <a href="#">
-                            <a href="{{ route('cart.remove.all.prod.qty', $product) }}"><i class='bx bx-trash'></i></a></i>
+                        <a href="{{ route('cart.remove.all.prod.qty', $product) }}">
+                            <i class='bx bx-trash'></i>
                         </a>
                     </td>
                 </tr>

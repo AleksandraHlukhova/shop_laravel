@@ -7,6 +7,8 @@ use App\Product;
 
 class Category extends Model
 {
+
+    protected $fillable = ['code', 'title'];
     /**
      * show products that has this category
      *
