@@ -43,6 +43,7 @@ Route::group([
 ], function(){
     Route::get('/admin/orders', 'Admin\OrderController@orders')->name('admin.orders');
     Route::resource('/admin/categories', 'Admin\CategoryController');
+    Route::resource('/admin/products', 'Admin\ProductController');
 });
 
 

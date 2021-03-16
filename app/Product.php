@@ -7,10 +7,9 @@ use App\Category;
 
 class Product extends Model
 {
-    // public function getCategory()
-    // {
-    //     return Category::find($this->category_id);
-    // }
+    protected $fillable = [
+        'title', 'category_id', 'description', 'price', 'created_at', 'updated_at'
+    ];
 
     /**
      * get category that belongs the product
