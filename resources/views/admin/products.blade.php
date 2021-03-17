@@ -9,6 +9,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Photo</th>
                         <th scope="col">Title</th>
                         <th scope="col">Category</th>
                         <th scope="col">Description at</th>
@@ -20,6 +21,13 @@
                     @foreach($products as $product)
                     <tr>
                         <td>{{ $product->id }}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-6">
+                                    <img src="{{ Storage::url($product->photo) }}" alt="{{ $product->title }}" style="max-width:100%">
+                                </div>
+                            </div> 
+                        </td>
                         <td>{{ $product->title }}</td>
                         <td>{{ $product->category->title }}</td>
                         <td>{{ $product->description }}</td>
@@ -41,7 +49,7 @@
                 </tbody>
             </table>
             <a href="{{ route('products.create') }}" type="submit" class="btn btn-sm btn-success">Create new
-                category</a>
+                product</a>
         </div>
     </div>
     
