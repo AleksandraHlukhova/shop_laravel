@@ -30,7 +30,10 @@
                     <div class="form-group">
                         <label for="text">Title</label>
                         <input type="title" name="title" class="form-control" id="title" placeholder="Title"
-                            value="@isset($product) {{ $product->title }} @endisset">
+                            value="{{ old('title', isset($product) ? $product->title : '') }}">
+                        @error('title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="code">Select the category</label>
@@ -52,11 +55,17 @@
                         <label for="code">Description</label>
                         <input type="text" name="description" class="form-control" id="code" placeholder="Enter description"
                             value="@isset($product) {{ $product->description }} @endisset">
+                        @error('description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="code">Price</label>
                         <input type="text" name="price" class="form-control" id="code" placeholder="Enter price"
                             value="@isset($product) {{ $product->price }} @endisset">
+                        @error('price')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
                 </form>
